@@ -1,14 +1,5 @@
 # SEM-1-EXAM-1
 
----
-title: Exam 1
-description: assignment 1
-layout: default
-nav_exlude: true
-has_children: false
-parent: Exam
-permalink: /Exam/exam1
----
 
 # 1. to-do liste
 I denne opgave skal du loade en to-do liste, dvs. en liste af opgaver (items), som skal repræsenteres i dit program som objekter.
