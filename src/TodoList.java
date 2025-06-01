@@ -4,7 +4,6 @@ public class TodoList {
 
     private ArrayList<Item> items;
 
-
     public TodoList(ArrayList<Item> items) {
         this.items = items;
     }
