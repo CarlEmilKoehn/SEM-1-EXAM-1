@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TodoList {
 
@@ -8,9 +9,50 @@ public class TodoList {
         this.items = items;
     }
 
-    void displayItems() {
+    public void displayItems() {
         for (Item item : items) {
-            System.out.println(item);
+            System.out.println((items.indexOf(item) + 1) + ": " + item);
+        }
+    }
+
+    public void runDialog() {
+        boolean exitDialog = false;
+        Scanner sc = new Scanner(System.in);
+        int choice;
+
+        String displayOptions = "1. Marker en opgave som 'done' \n" +
+                "2. Tilføj en opgave \n" +
+                "3. Afslut dialog";
+
+        while (!exitDialog) {
+            System.out.println();
+            System.out.println(displayOptions);
+            choice = sc.nextInt();
+            sc.nextLine(); //flush
+
+            switch (choice) {
+                case 1:
+                    displayItems();
+                    System.out.println("Tast tallet du vil markere som 'done'");
+                    choice = sc.nextInt();
+                    items.get(choice - 1).setDone(true);
+                    Main.itemLoader.saveFile("data/todo.csv", items, "Description, Done");
+                    break;
+
+                case 2:
+                    String description;
+                    System.out.println("Indtast en beskrivelse");
+                    description = sc.nextLine();
+                    items.add(new Item(description, false));
+                    Main.itemLoader.saveFile("data/todo.csv", items, "Description, Done");
+                    break;
+
+                case 3:
+                    exitDialog = true;
+                    System.exit(0);
+                default:
+                    runDialog();
+            }
         }
     }
 }

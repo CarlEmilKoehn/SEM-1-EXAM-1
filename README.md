@@ -9,9 +9,6 @@ Opgaverne skal vises til brugeren når programmet starter.
    Headeren skal have formen:
    `Description, Done`
 
-
-![](todoDiagram.svg)
-
 2. Lav en klasse Item som repræsenterer en opgave i to-do listen.
     -  Tilføj attributterne jvf klassediagrammet. Bestem selv datatype og access modifyer for
        attributterne.
@@ -26,8 +23,6 @@ Opgaverne skal vises til brugeren når programmet starter.
 4. Lav en TodoList klasse
     - tilføj attributten items, og en konstruktor jvf. klassediagrammet.
     - tilføj en metode displayItems() i TodoList, der printer alle items i listen ud.
-
-
 
 
 5. Lav en Main klasse med en main-metode.
@@ -45,33 +40,6 @@ Opgaverne skal vises til brugeren når programmet starter.
    3. Vande blomster, not done
    4. Købe ind, done 
   ```
-
-<div hidden>
-
-```
-@startuml todoDiagram
-object Main{
-
-}
-class ItemLoader{
-ArrayList<Item> loadFile(String path)
-}
-class TodoList{
-ArrayList<Item> items
-TodoList(ArrayList<Item> items)
-void displayItems()
-}
-class Item{
-... description
-... isDone
-void markAsDone()
-}
-TodoList *-- Item: Has
-Main *-- ItemLoader
-Main *-- TodoList
-@enduml
-```
-</div>
 
 
 
@@ -91,4 +59,5 @@ Main *-- TodoList
    opgave til listen. Der skal derfor vises en besked om at skrive opgavens tekst. Den nye opgave skal
    blive til et nyt Item objekt og lægges ind i ArrayListen af items.
 - Hvis man taster et tal som er 0 eller mindre, ryger man ud af loop’et og programmet stopper.
- 
+
+![UML Diagram](doc/todoDiagram.png)

@@ -1,0 +1,21 @@
+@startuml todoDiagram
+object Main{
+
+}
+class ItemLoader{
+ArrayList<Item> loadFile(String path)
+}
+class TodoList{
+ArrayList<Item> items
+TodoList(ArrayList<Item> items)
+void displayItems()
+}
+class Item{
+... description
+... isDone
+void markAsDone()
+}
+TodoList *-- Item: Has
+Main *-- ItemLoader
+Main *-- TodoList
+@enduml

@@ -22,4 +22,12 @@ public class Item {
     public String toString(){
         return description + ", " + isDoneMark;
     }
+
+    public String toStringCSV(){
+        return description + ", " + isDone;
+    }
+
+    public void setDone(boolean done){
+        this.isDone = done;
+    }
 }

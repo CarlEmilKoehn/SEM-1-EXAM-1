@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,7 +10,7 @@ import static java.lang.Boolean.parseBoolean;
 public class ItemLoader {
 
 
-    ArrayList<Item> loadFile(String path) {
+    public ArrayList<Item> loadFile(String path) {
 
         try {
 
@@ -32,6 +34,21 @@ public class ItemLoader {
         } catch (FileNotFoundException e) {
             System.out.println("File not found" + e.getMessage());
             return null;
+        }
+    }
+
+    public void saveFile(String path, ArrayList<Item> items, String header) {
+
+        try {
+            FileWriter writer = new FileWriter(path);
+            writer.write(header + "\n");
+            for (Item item : items) {
+                writer.write(item.toStringCSV() + "\n");
+            }
+            writer.close();
+
+        } catch (IOException e) {
+            System.out.println("problem: " + e.getMessage());
         }
     }
 }
