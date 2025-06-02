@@ -48,7 +48,7 @@ public class ItemLoader {
             writer.close();
 
         } catch (IOException e) {
-            System.out.println("problem: " + e.getMessage());
+            System.out.println("Problem saving: " + e.getMessage());
         }
     }
 }
